@@ -5,18 +5,16 @@ import java.io.DataOutputStream;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class TwoWayClient {
-
-    public static void main(String[] args) {
+public class Client {
+    public Client() {
         try {
             Socket clientSocket = new Socket("localhost", 5000);
             Scanner input = new Scanner(System.in);
 
-            int userCount = 0;
             DataInputStream dis = new DataInputStream(clientSocket.getInputStream());
             DataOutputStream dos = new DataOutputStream(clientSocket.getOutputStream());
 
-            while (userCount < 5) {
+            while (true) {
                 String inLine = dis.readUTF();
                 System.out.println(inLine);
                 String outLine = input.nextLine();
@@ -30,7 +28,6 @@ public class TwoWayClient {
                 }
                 String received = dis.readUTF();
                 System.out.println("Result: " + received);
-                userCount++;
             }
             dos.close();
             dis.close();
@@ -38,6 +35,5 @@ public class TwoWayClient {
         } catch (Exception e) {
             System.out.println("Exception: " + e);
         }
-
     }
 }

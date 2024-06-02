@@ -12,6 +12,8 @@ package dev.ahmudz.twosocketusingthreading;
 public class TwoSocketUsingThreading {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        MainWindow mainWindow = new MainWindow();
+        
+        mainWindow.setVisible(true);
     }
 }
