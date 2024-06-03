@@ -1,0 +1,2 @@
+- DataOutputStream class which is used for send data to the server side.
+- DataInputStream class which is used for Receive data from the client side.
